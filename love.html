@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Yassine 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #89f7fe, #fbc2eb);
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  h1 {
+    margin-top: 80px;
+    font-size: 3em;
+    color: #444;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 12px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #ff8fab;
+    color: white;
+    box-shadow: 0 0 10px rgba(255,143,171,0.6);
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .message {
+    margin-top: 30px;
+    font-size: 1.3em;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  /* soft floating dots */
+  .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    from {
+      transform: translateY(100vh);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-10vh);
+      opacity: 0;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+<h1>Yassine 💖</h1>
+<p>I heard you're not feeling well... 🥺</p>
+<p>So I made this for you, just to make you smile a little</p>
+
+<button onclick="showMessage()">Open this 💌</button>
+
+<div id="mainMessage" class="hidden message">
+  Yassine,<br><br>
+
+I really wish I could be next to you right now…<br>
+just to take care of you and make you feel a little better 🥺<br><br>
+
+You mean so much to me, more than I can even explain.<br>
+Seeing you not feeling okay honestly makes me wish I could take it away from you.<br><br>
+
+Please rest, take care of yourself, and don’t push yourself too much.<br>
+You deserve to feel safe, calm, and okay 💕<br><br>
+
+I’m always here for you… always 💖
+
+</div>
+
+<br>
+
+<button onclick="nextMessage()">Click for more 💕</button>
+
+<div id="extraMessage" class="message"></div>
+
+<script>
+  function showMessage() {
+    document.getElementById("mainMessage").classList.remove("hidden");
+  }
+
+  const messages = [
+    "I miss you even more when you're not feeling okay 🥺",
+    "If I could, I’d hug you until you feel better 🤍",
+    "You don’t have to be strong all the time, it’s okay to rest 💞",
+    "I’m right here for you, no matter what 💗",
+    "You’re really important to me Yassine… don’t forget that 💖"
+  ];
+
+  let index = 0;
+
+  function nextMessage() {
+    document.getElementById("extraMessage").innerHTML = messages[index];
+    index = (index + 1) % messages.length;
+  }
+
+  // soft particles
+  function createParticle() {
+    const p = document.createElement("div");
+    p.classList.add("particle");
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(p);
+
+    setTimeout(() => {
+      p.remove();
+    }, 5000);
+  }
+
+  setInterval(createParticle, 250);
+</script>
+
+</body>
+</html>
